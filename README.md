@@ -1,0 +1,1 @@
+# portage du projet communes sous JBoss

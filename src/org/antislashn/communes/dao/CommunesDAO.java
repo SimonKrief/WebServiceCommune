@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.antislashn.communes.entities.Commune;
+import org.antislashn.communes.entities.Region;
 
 @Singleton
 public class CommunesDAO {
@@ -16,6 +17,13 @@ public class CommunesDAO {
 		return em.createNamedQuery("Commune.byCodePostal", Commune.class)
 					.setParameter("codePostal", cp+"%")
 					.getResultList();
+	}
+	
+
+	public List<String> getAllRegions() {
+		return em.createNamedQuery("Region.all", String.class)
+//				.setParameter("codePostal", cp+"%")
+				.getResultList();
 	}
 }
 

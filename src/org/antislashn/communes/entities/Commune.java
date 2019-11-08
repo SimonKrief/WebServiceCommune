@@ -1,5 +1,7 @@
 package org.antislashn.communes.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -12,7 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 @Entity
 @Table(name="cities")
 @Access(AccessType.FIELD)
@@ -26,18 +30,29 @@ import javax.persistence.Table;
 		@NamedQuery(name = "Commune.byNom",
 				query = "SELECT c FROM Commune c WHERE UPPER(c.nom) LIKE :nom")
 })
-public class Commune {
+public class Commune implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 567652240092949463L;
+	
 	@Id
+	@XmlElement
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@XmlElement
 	@Column(name="name")
 	private String nom;
+	@XmlElement
 	@Column(name="zip_code")
 	private String codePostal;
+	@XmlElement
 	@Column(name="gps_lat")
 	private double gpsLatitude;
+	@XmlElement
 	@Column(name="gps_lng")
 	private double gpsLongitude;
+	@XmlElement
 	@ManyToOne
 	@JoinColumn(name="department_code")
 	private Departement departement;

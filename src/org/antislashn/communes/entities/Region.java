@@ -1,5 +1,7 @@
 package org.antislashn.communes.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -14,7 +16,11 @@ import javax.persistence.Table;
 @Table(name="regions")
 @NamedQuery(name="Region.all", query = "SELECT r.nom FROM Region r")
 @Access(AccessType.FIELD)
-public class Region {
+public class Region implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4766877918654512174L;
 	@Id
 	private String code;
 	@Column(name="name")

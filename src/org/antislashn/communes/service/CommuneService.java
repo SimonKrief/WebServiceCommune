@@ -14,6 +14,7 @@ import org.antislashn.communes.entities.Region;
 //@Singleton
 @Stateless
 @WebService
+// l'uri du wsdl créé sera : "http://localhost:9080/communes/CommuneService?wsdl"
 public class CommuneService implements CommuneServiceRemote  {
 	@Inject private CommunesDAO dao;
 

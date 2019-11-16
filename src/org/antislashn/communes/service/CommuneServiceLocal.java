@@ -9,6 +9,6 @@ import org.antislashn.communes.entities.Commune;
 
 @Local
 public interface CommuneServiceLocal extends CommuneServiceInterface{
-//	List<Commune> getCommunesByCodePostalLike(String cp);
-
+//On fait hériter une interface locale d'une interface possedant la déclaration des methodes.
+//Cela permet de les avoir dans le wsdl
 }
